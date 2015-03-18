@@ -1,3 +1,41 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+* { font-family: monospace; }
+
+.sign-in {
+  float: right;
+  margin: 114px 20px 0 0;
+}
+
+#app-logo {
+  float: left;
+  height: 150px;
+  width: auto;
+}
+
+.bar-text {
+  float: left;
+  margin-top: 60px;
+}
+
+.top-bar {
+  padding-bottom: 150px;
+}
+
+.all-posts {
+  background-color: rgb(210, 7, 7);
+}
+
+.new-post {
+  text-decoration: none;
+}
+
+.new-button {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  width: 10%;
+  background-color: white;
+  text-align: center;
+}
