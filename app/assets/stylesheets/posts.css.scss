@@ -5,7 +5,8 @@
 
 .sign-in {
   float: right;
-  margin: 114px 20px 0 0;
+  margin: 20px 55px 0 0;
+  width: 20%;
 }
 
 #app-logo {
@@ -20,11 +21,14 @@
 }
 
 .top-bar {
-  padding-bottom: 150px;
+  padding-bottom: 15px;
+  display: inline-flex;
+  width: 100%;
 }
 
-.all-posts {
+.posts {
   background-color: rgb(210, 7, 7);
+  height: 100%;
 }
 
 .new-post {
@@ -35,7 +39,130 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 20px;
-  width: 10%;
+  width: 15%;
   background-color: white;
   text-align: center;
+}
+
+.all-posts {
+  overflow: scroll;
+  height: 70%;
+}
+
+.each-post {
+  background-color: white;
+  width: 85%;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+}
+
+.post-body {
+  display: -webkit-box;
+  height: 200px;
+}
+
+.post-element {
+  margin-left: 5px;
+  display: inline-table;
+}
+
+.describe{
+  width: 80%;
+  /*
+  margin-top: 66px;
+  margin-left: -40.7%;
+  margin-right: 0;
+  */
+}
+
+.status-icon {
+  width: 30px;
+  height: 30px;
+  margin-top: 8%;
+}
+
+.profile {
+  width: 100px;
+  height: 100px;
+}
+
+.post-pics {
+  margin: 2% 0 0 2%;
+  width: 100px;
+}
+
+#top-profile {
+  float: right;
+}
+
+.login-text {
+  float: right;
+  margin-top: 24%;
+  margin-right: 5%;
+}
+
+.text-signout {
+  float: right;
+}
+
+.legend {
+  width: 30%;
+  display: inline-flex;
+  height: 30px;
+  margin-top: 120px;
+  margin-left: 110px;
+}
+
+.house-label {
+  width: 65%;
+}
+
+.top-icon {
+  height: 30px;
+  width: 30px;
+  float: left; 
+}
+
+.person-group {
+  margin-left: 20px;
+}
+
+.icon-text {
+  margin-left: 40px;
+  margin-top: 15px;
+}
+
+.title {
+  /*margin: 10px 0 0 35px;
+  height: 20px; */
+}
+
+.row1 {
+  margin-bottom: 15px;
+}
+
+.location {
+  display: inline-table;
+}
+
+.whole-page {
+  height: 100%;
+  overflow: hidden;
+}
+
+.posts-text {
+  margin-left: 4.6%;
+  width: 84.7%
+}
+
+.edit-methods {
+  float: right;
+  margin-right: 10px;
+}
+
+.plz {
+  background-color: rgb(210, 7, 7);
+  color: white;
 }

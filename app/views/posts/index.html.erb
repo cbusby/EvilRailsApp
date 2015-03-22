@@ -1,42 +1,79 @@
 
-
-<div class="top-bar">
-	<img id="app-logo" src="<%= asset_path( 'app-logo.jpg' ) %>" />
-	<div class="bar-text">	
-		<h1 class="app-title">Roommate Rescue</h1>
-		<p class="app-slogan">Save yourself from a bad living space.</p>
+<div class="whole-page">
+	<div class="top-bar">
+		<img id="app-logo" src="<%= asset_path( 'app-logo.jpg' ) %>" />
+		<div class="bar-text">	
+			<h1 class="app-title">Roommate Rescue</h1>
+			<p class="app-slogan">Save yourself from a bad living space.</p>
+		</div>
+		<div class="legend">
+			<div class="house-group">
+				<img class="top-icon" src="<%= asset_path( 'house.jpeg' ) %>" />
+				<div class="icon-text">Has a residence.</div>
+			</div>
+			<div class="person-group">
+				<img class="top-icon" src="<%= asset_path( 'person.jpg' ) %>" />
+				<div class="icon-text">Seeking a residence.</div>
+			</div>
+		</div>
+		<div class="sign-in">
+			<img class="profile" id="top-profile" src="<%= asset_path( 'blank_profile.jpg' ) %>" />
+			<div class="login-text">
+				<% if user_signed_in? %>
+					<div><%= current_user.email %></div>
+					<div class="text-signout"><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></div>
+				<% else %>
+					<%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
+				<% end %>
+			</div>
+		</div>
 	</div>
-	<div class="sign-in">
+	<div class="posts"><br />
 		<% if user_signed_in? %>
-			<%= current_user.email %>
-			<%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+			<div class="new-button">
+				<%= link_to 'New Post', new_post_path, class: "new-post"%>
+			</div>
 		<% else %>
-			<%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
+			<div class="new-button plz">
+				Login to create posts!
+			</div>
 		<% end %>
+		<div class="all-posts">
+			<% @posts.each do |post| %>
+				<div class="each-post">
+			  		<div class="post-body">
+			  			<div class="post-pics">
+				  			<img class="profile" src="<%= asset_path( 'blank_profile.jpg' ) %>" />
+				  			<% if post.hasHome %>
+				  				<img class="status-icon" src="<%= asset_path( 'house.jpeg' ) %>" />
+				  			<% else %>
+				  				<img class="status-icon" src="<%= asset_path( 'person.jpg' ) %>" />
+				  			<% end %>
+			  			</div>
+			  			<div class="posts-text">
+				    		<h2 class="title"><%= post.title %></h2>
+				    		<div class="row1">
+					    		<div class="location">Location: <%= post.location %></div>
+					    		<div class="post-element">Availability Date: <%= post.availability %></div>
+					    		<div class="post-element">Contact Info: <%= post.contact %></div>
+					    		<div class="post-element">User: <%= post.name %></div>
+					    	</div>
+				    		<div class="describe">
+				    			<%= post.description %>
+				    			<div class="post-element"><%= link_to 'Show', post %></div>
+				    		</div>
+				    		<% if user_signed_in? %>
+					    		<div class="edit-methods">
+						    		<div class="post-element"><%= link_to 'Edit', edit_post_path(post) %></div>
+						    		<div class="post-element"><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+				  				</div>
+				  			<% end %>
+				    	</div>
+			  		</div>
+			  	</div>
+			<% end %>
+		</div>
+		
+		<br />
 	</div>
 </div>
-<div class="all-posts"><br />
-	<div class="new-button">
-		<%= link_to 'New Post', new_post_path, class: "new-post"%>
-	</div>
-	
-	<% @posts.each do |post| %>
-		<div class="each-post">
-	  		<div>
-	  			<div><%= post.hasHome %></div>
-	    		<div><%= post.title %></div>
-	    		<div><p>Location:</p><%= post.location %></div>
-	    		<div><p>Availability Date:</p><%= post.availability %></div>
-	    		<div><p>Contact Info:</p><%= post.contact %></div>
-	    		<div><%= post.name %></div>
-	    		<div><%= post.description %></div>
-	    		<div><%= link_to 'Show', post %></div>
-	    		<div><%= link_to 'Edit', edit_post_path(post) %></div>
-	    		<div><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-	  		</div>
-	  	</div>
-	<% end %>
-	
-	<br />
-</div>
-
